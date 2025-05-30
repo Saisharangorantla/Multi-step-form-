@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi-Step Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <h2>Student Registration</h2>
+  <div class="step-indicator">
+    <div class="step-icon active">1</div>
+    <div class="step-icon">2</div>
+    <div class="step-icon">3</div>
+    <div class="step-icon">4</div>
+  </div>
+
+  <form id="multiStepForm">
+    <div class="step active">
+      <h3>Personal Info</h3>
+      <label class="name">Name:
+      <input type="text" name="name" placeholder="Full Name" required />
+      </label>
+      <br>
+      <label class="email">Email:
+      <input type="email" name="email" placeholder="Email" required />
+      <br>
+        <label class="phone">Phone Number:
+        <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" />
+      </label>
+      <br>
+        <label class="dob">Date of Birth:
+        <input type="date" name="dob" required />
+      </label>
+      <br>
+      <label class="gender">gender
+        <select name="gender" required>
+            <option value="">Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+      </label>
+    </div>
+    <div class="step">
+      <h3>Academic Info</h3>
+      <label class="college">College:
+      <input type="text" name="college" placeholder="College Name" required />
+      </label>
+      <br>
+      <label class="rollno">Roll Number:
+      <input type="text" name="rollno" placeholder="Roll Number" required />
+      </label>
+      <br>
+      <label class="'degree">Degree Program:
+      <input type="text" name="degree" placeholder="Degree Program" required />
+      </label>
+      <br>
+      <label class="year">Year of Study:
+      <select name="year" required>
+        <option value="">Select Year</option>
+        <option>1st Year</option>
+        <option>2nd Year</option>
+        <option>3rd Year</option>
+        <option>4th Year</option>
+        </select>
+      </label>
+      <br>
+        <label class="gpa">GPA:
+            <input type="number" name="gpa" placeholder="GPA" step="0.01"  required />
+        </label>
+        <br>
+    </div>
+    <div class="step">
+      <h3>Preferences</h3>
+      <!-- <label><input type="checkbox" name="newsletter" /> Classes Preffered</label><br/> -->
+      <label>Preferred Mode:
+        <select name="mode" required>
+          <option value="">Select</option>
+          <option>Online Classes</option>
+          <option>Offline Classes</option>
+        </select>
+      </label>
+      <br>
+        <label>Preferred Subjects:
+            <br>
+                <label>Maths</label>
+                <input type="checkbox" name="subjects" value="Math" />
+
+                <br>
+                <label>Physics</label>
+                <input type="checkbox" name="subjects" value="Physics" />
+                <br>
+                <label>Chemistry</label>
+                <input type="checkbox" name="subjects" value="Chemistry" />
+                <br>
+                <label>Biology</label>
+                <input type="checkbox" name="subjects" value="Biology" />
+                <br>
+                <label>Computer Science</label>
+                    <input type="checkbox" name="subjects" value="Computer Science" /> 
+                <br>
+        </label>
+        <br>
+        <label>Preferred Time Slot:
+            <select name="time_slot" required>
+              <option value="">Select</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+            </select>
+          </label>
+          <label>Prefered Language
+            <input type="text" name="language" placeholder="Preferred Language" required />
+          </label>
+
+    </div>
+
+    <div class="step">
+      <h3>Review </h3>
+      <div id="summary"></div>
+      <button type="submit">Submit</button>
+      <button type="button" onclick="downloadSummary()">Download </button>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="prevBtn" onclick="changeStep(-1)">Back</button>
+      <button type="button" id="nextBtn" onclick="changeStep(1)">Next</button>
+    </div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
